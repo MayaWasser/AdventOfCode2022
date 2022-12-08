@@ -6,19 +6,6 @@ def addDirectory(directories, path):
         directories[path] = []
     return directories
 
-# def findSize(paths):
-#     directorySizes = {}
-#     for directory in paths.keys():
-#         size = 0
-#         for file in directory:
-#             if (file.isdigit()):
-#                 size += int(file)
-#             else:
-#                 directorySize = findSize( directories[file] )
-#                 size += directorySize
-#         directorySizes[directory] = size
-#     return directorySizes
-
 def findSize(paths, dir):
     size = 0
     for file in dir:
