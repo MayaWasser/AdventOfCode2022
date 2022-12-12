@@ -33,10 +33,14 @@ for lineNum in range(len(lines)):
     if lineNum % 7 == 5:
         ifFalse.append( int(line[26:]) )
 
+manageWorry = 1
+for i in tests:
+    manageWorry *= i
+
 def turn(monkey):
     for item in worryLevels[monkey]:
         count[monkey] += 1
-        item = applyOperation(item, operations[monkey])
+        item = applyOperation(item, operations[monkey]) % manageWorry
         if item % tests[monkey] == 0:
             worryLevels[ ifTrue[monkey] ].append(item)
         else:
@@ -47,7 +51,7 @@ def round():
     for i in range( len(count) ):
         turn(i)
 
-for i in range(20):
+for i in range(10000):
     round()
 
 topMonkey = max(count)
