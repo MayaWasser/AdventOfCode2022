@@ -33,22 +33,15 @@ def compareLists(list1, list2):
         term1 = list1[i]
         term2 = list2[i]
         if type(term1) is int and type(term2) is int:
-            if term1 > term2:
-                return False
-            if term1 < term2:
-                return True
+            if term1 != term2:
+                return term1 < term2
         elif type(term1) is list or type(term2) is list:
             if type(term1) is int:
                 term1 = [term1]
             if type(term2) is int:
                 term2 = [term2]
-            inOrder = compareLists(term1, term2)
-            if (not inOrder):
-                return False
-            if (inOrder):
-                return True
-    return len(list1) < len(list2)
-
+            return compareLists(term1, term2)
+    return len(list1) <= len(list2)
 
 input = open("input.txt", "r")
 lines = input.readlines()
