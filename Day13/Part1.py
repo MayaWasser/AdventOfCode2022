@@ -53,6 +53,7 @@ lineNum = 0
 while (lineNum < len(lines)):
     packet1 = createList(lines[lineNum].strip())
     packet2 = createList(lines[lineNum+1].strip())
+    # print(compareLists(packet1, packet2))
     if compareLists(packet1, packet2):
         sum += index
     index += 1
